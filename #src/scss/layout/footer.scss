@@ -1,0 +1,117 @@
+.footer-block {
+    background-color: $footer-bg;
+
+    & .footer {
+        @include flex(row, space-between, center);
+        padding: 45px 0 55px;
+
+        @include for-tablet {
+            padding: 45px 20px 55px;
+        }
+
+        @include for-tablet-portrait {
+            @include flex(column, center, center);
+        }
+
+        & .first-block {
+            @include flex(row, space-between, center);
+
+            @include for-phone-only {
+                @include flex(column, space-between, center)
+            }
+
+            & .copyright {
+                @include font('Montserrat', 1.3rem, $second-color, 300);
+            }
+
+            
+        }
+
+        & .second-block {
+            @include flex(row, space-between, center);
+
+            @include for-tablet-portrait {
+                margin-top: 40px;
+            }
+
+            @include for-phone-only {
+                display: none;
+            }
+
+            & .author-block {
+                letter-spacing: 1px;
+                @include font('Montserrat', 1.3rem, $second-color, 300);
+
+                & .decorated-text {
+                    color: #959595;
+                }
+
+                &:nth-of-type(2) {
+                    margin-left: 30px;
+                    position: relative;
+
+                    &::before {
+                        position: absolute;
+                        content: '|';
+                        left: -15px;
+                        top: -5px;
+                        font-size: 2rem;
+                    }
+                }
+            }
+        }
+    }
+}
+
+.footer-navigation {
+    &__items {
+        list-style: none;
+        @include flex(row, space-between, center);
+
+        @include for-phone-only {
+            @include flex(column, space-between, center);
+        }
+
+        & .navigation-item {
+            margin-left: 30px;
+            position: relative;
+
+            @include for-phone-only {
+                margin-left: 0;
+                margin-top: 20px;
+
+                &::before {
+                    content: none;
+                }
+            }
+
+            &::before {
+                position: absolute;
+                content: '|';
+                color: $third-color;
+                left: -15px;
+                font-size: 20px;
+                top: -5px;
+            }
+
+            &:nth-of-type(1) {
+                &::before {
+                    content: none;
+                }
+            }
+
+            &:hover {
+                & .navigation-item__link {
+                    color: $first-color;
+                }
+            }
+
+            &__link {
+                text-decoration: none;
+                @include font('Montserrat', 1.3rem, $second-color, 300);
+                text-transform: capitalize;
+                transition: all 0.3s ease;
+            }
+        }
+    }
+}

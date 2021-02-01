@@ -1,0 +1,21 @@
+.button {
+    width: 170px;
+    height: 50px;
+    background-color: $button-color;
+    @include flex(row, center, center);
+    text-decoration: none;
+    @include font('Raleway', 1.4rem, $first-color, 800);
+    text-transform: uppercase;
+    border-radius: 2px;
+    position: relative;
+    transition: all 0.3s ease;
+    box-shadow: 0px 5px 0px 0px $second-color;
+
+    &:hover {
+        background-color: $primary-decoration-color;
+        box-shadow: 0px 0px 0px 0px $second-color;
+        transform: translateY(5px);
+    }
+
+  
+}

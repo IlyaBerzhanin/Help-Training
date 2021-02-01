@@ -1,0 +1,88 @@
+.achievements-block {
+  background: linear-gradient(to right, #211b19, #4e3427);
+
+  & .achievements {
+    @include flex(row, space-between, center);
+
+    @include for-tablet {
+      padding: 0 40px;
+    }
+
+    @include for-tablet-portrait {
+      @include flex(column, center, center);
+    }
+
+    & .achievement {
+      position: relative;
+      margin: 140px 0 90px;
+      text-align: center;
+      width: 136px;
+
+      @include for-tablet-portrait {
+        margin: 100px 0 80px;
+      }
+
+      &::before {
+          position: absolute;
+          width: 30px;
+          height: 30px;
+          top: -60px;
+          left: 42px;
+
+      }
+      
+      &::after {
+        content: "";
+        position: absolute;
+        background-color: $first-color;
+        width: 30px;
+        height: 2px;
+        bottom: -30px;
+        left: 50px;
+      }
+
+      &__counter {
+        @include font("Montserrat", 4.8rem, $first-color, 300);
+        letter-spacing: 3px;
+      }
+
+      &__description {
+        @include font("Montserrat", 1.4rem, $primary-decoration-color, 300);
+        text-transform: uppercase;
+      }
+
+     
+    }
+
+    & .first {
+        &::before {
+            content: url('../../img/achievements/first.png');
+        }
+    }
+
+    & .second {
+        &::before {
+            content: url('../../img/achievements/second.png');
+        }
+    }
+
+    & .third {
+        &::before {
+            content: url('../../img/achievements/third.png');
+        }
+    }
+
+    & .fourth {
+        &::before {
+            content: url('../../img/achievements/fourth.png');
+        }
+    }
+
+    & .fifth {
+        &::before {
+            content: url('../../img/achievements/fifth.png');
+            left: 38px;
+        }
+    }
+  }
+}

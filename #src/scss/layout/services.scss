@@ -1,0 +1,91 @@
+.services-block {
+    @include flex(row, space-between, center);
+    flex-wrap: wrap;
+    padding-bottom: 150px;
+
+    @include for-tablet {
+        padding: 0 40px 150px;
+    }
+
+    @include for-tablet-portrait {
+        padding: 0 10px 150px;
+    }
+
+    @include for-phone-only {
+        @include flex(column, center, center);
+    }
+
+    & .service {
+        @include flex(column, center, center);
+       margin: 85px 10px 0;
+       text-align: center;
+
+       @include for-tablet {
+           width: 44%;
+           margin-top: 100px;
+       }
+
+        &:hover {
+            cursor: pointer;
+            & .service__title {
+                color: $primary-decoration-color;
+            }
+
+            & .service__icon {
+                &__active {
+                    fill: $primary-decoration-color;
+                }
+            }
+
+            & .service__description {
+                &::before {
+                    width: 70px;
+                }
+            }
+        }
+
+        &__icon {
+            &__active {
+                fill: $second-color;
+                transition: all 0.3s ease;
+            }
+        }
+
+        &__title {
+            @include font('Raleway', 2.2rem, $second-color, 600);
+            text-transform: capitalize;
+            margin-top: 30px;
+            transition: all 0.3s ease;
+        }
+
+        &__description {
+            @include font('Montserrat', 1.4rem, $third-color, 300);
+            width: 270px;
+            text-align: center;
+            line-height: 25px;
+            margin-top: 25px;
+            position: relative;
+
+            &::before, &::after {
+                content: '';
+                position: absolute;
+                height: 3px;
+                top: 150%;
+            }
+
+            &::before {
+                background-color: $primary-decoration-color;
+                left: 36.5%;
+                width: 0px;
+                transition: all 0.3s ease;
+                z-index: 2;
+            }
+
+            &::after {
+                background-color: $service-decoration-line;
+                right: 37.5%;
+                width: 70px;
+            }
+        }
+    }
+}

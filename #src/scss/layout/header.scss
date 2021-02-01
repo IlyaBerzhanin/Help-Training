@@ -1,0 +1,202 @@
+.header-block {
+  width: 100%;
+  z-index: 5000;
+  height: 116px;
+  transition: all 0.6s ease;
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+}
+
+.header {
+  @include flex(row, space-between, center);
+  padding: 30px 0;
+  z-index: 5000;
+  transition: all 0.6s ease;
+
+  @include for-tablet {
+    padding: 30px 50px;
+  }
+
+  @include for-phone-only {
+    padding: 30px 20px;
+  }
+}
+
+.navigation {
+  @include flex(row, space-between, center);
+  height: 56px;
+  width: 1030px;
+  position: relative;
+
+  @include for-tablet {
+    justify-content: space-around;
+  }
+
+  @include for-phone-only {
+    
+
+    &::before {
+      content: "";
+      position: absolute;
+      width: 60px;
+      height: 55px;
+      background-image: url("../../img/header/logo-waxom.png");
+      top: 0px;
+      left: 0px;
+    }
+  }
+
+  & .logo {
+    @include font("Raleway", 3.4rem, $first-color, 400);
+    text-transform: capitalize;
+    position: relative;
+    margin-left: 70px;
+
+    @include for-phone-only {
+      display: none;
+    }
+
+    &::before {
+      content: "";
+      position: absolute;
+      width: 60px;
+      height: 55px;
+      background-image: url("../../img/header/logo-waxom.png");
+      top: -8px;
+      left: -70px;
+    }
+  }
+
+  & .links-block {
+    @include flex(row, space-between, center);
+    list-style: none;
+    padding: 0 20px 0 20px;
+
+    @include for-tablet {
+      display: none;
+    }
+
+    &__item {
+      margin-left: 30px;
+
+      &:nth-child(1) {
+        margin-left: 0;
+      }
+
+      & .item__link {
+        text-decoration: none;
+        @include font("Montserrat", 1.4rem, $first-color, 300);
+        text-transform: capitalize;
+        transition: all 0.4s ease;
+
+        &:hover {
+          color: $primary-decoration-color;
+        }
+      }
+    }
+  }
+}
+
+.user-actions {
+  height: 50px;
+  @include flex(row, flex-start, center);
+  width: 120px;
+
+  @include for-phone-only {
+    width: 80px;
+  }
+
+  &-button {
+    height: 100%;
+    width: 50px;
+    @include flex(row, center, center);
+
+    @include for-phone-only {
+      width: 25px;
+    }
+
+    &:nth-of-type(2) {
+      margin-left: 40px;
+
+      @include for-phone-only {
+        margin-left: 30px;
+      }
+    }
+  }
+
+  &-button__item {
+    height: 30px;
+
+    &:hover {
+      & .user-actions-button__item-active {
+        fill: $primary-decoration-color;
+      }
+    }
+
+    &-active {
+      transition: all 0.4s ease;
+    }
+  }
+}
+
+
+.burger-button {
+  display: block;
+  width: 40px;
+  height: 40px;
+  @include flex(row, center, center);
+  display: none;
+
+  @include for-tablet {
+    display: flex;
+  }
+
+  @include for-phone-only {
+    margin-left: 70px;
+  }
+
+  &:hover {
+    & .burger-line {
+      background-color: $primary-decoration-color;
+
+      &::before, &::after {
+        background-color: $primary-decoration-color;
+      }
+    }
+  }
+
+  & .burger-line {
+    width: 30px;
+    height: 2px;
+    background-color: $first-color;
+    position: relative;
+    transition: all 0.4s ease;
+
+    &::before, &::after {
+      position: absolute;
+      content: '';
+      width: 30px;
+      height: 2px;
+      background-color: $first-color;
+      transition: all 0.4s ease;
+    } 
+
+    &::before {
+      top: -10px;
+    }
+
+    &::after {
+      top: 10px;
+    }
+  }
+}
+
+.header-hidden {
+  top: -100%;
+}
+
+.header-active {
+  background: linear-gradient(to right, #211b19, #4e3427);
+}

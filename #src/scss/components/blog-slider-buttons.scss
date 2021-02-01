@@ -1,0 +1,73 @@
+.blog-gallery__switch-buttons {
+    @include flex(row, space-between, center);
+    margin-top: 40px;
+    width: 80px;
+
+    @include for-tablet {
+        display: none;
+    }
+
+    & .first-button, & .second-button {
+      width: 30px;
+      height: 30px;
+      @include flex(row, center, center);
+      position: relative;
+
+        &:hover {
+            &::before {
+                border-color: $primary-decoration-color;
+            }
+        }
+
+        &::before, &::after {
+            position: absolute;
+            content: '';
+            transition: all 0.4s ease;
+        }
+
+        &::before {
+            width: 20px;
+            height: 20px;
+            border: 1px solid $third-color;
+            border-radius: 50%;
+        }
+
+        &::after {
+            width: 7px;
+            height: 7px;
+            border: 1px solid transparent;
+        }
+    }
+
+    & .first-button {
+        &::after {
+            border-left: 1px solid $third-color;
+            border-bottom: 1px solid $third-color;
+            transform: rotate(45deg);
+            left: 45%;
+        }
+
+        &:hover {
+            &::after {
+                border-bottom: 1px solid $primary-decoration-color;
+                border-left: 1px solid $primary-decoration-color;
+            }
+        }
+    }
+
+    & .second-button {
+        &::after {
+            border-right: 1px solid $third-color;
+            border-bottom: 1px solid $third-color;
+            transform: rotate(-45deg);
+            right: 45%;
+        }
+
+        &:hover {
+            &::after {
+                border-bottom: 1px solid $primary-decoration-color;
+                border-right: 1px solid $primary-decoration-color;
+            }
+        }
+    }
+}

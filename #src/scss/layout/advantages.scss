@@ -1,0 +1,81 @@
+.advantages {
+    background-color: $advertisement-bg;
+    padding-top: 80px;
+    
+    & .wrapper {
+        @include flex(row, space-between, center);
+
+        @include for-tablet {
+            padding: 0 40px;
+        }
+
+        @include for-tablet-portrait {
+            @include flex(column, center, center);
+        }
+    }
+}
+
+.advantages-image {
+    display: block;
+    width: 100%
+}
+
+.advantages-block {    
+    @include flex(column, center, flex-start);
+    width: 57%;
+
+    @include for-tablet-portrait {
+        padding: 50px 0;
+    }
+
+    @include for-phone-only {
+        padding: 50px 20px;
+        width: auto;
+    }
+
+    &__title {
+        @include font('Raleway', 3rem, $second-color, 600);
+    }
+
+    &__description {
+        @include font('Montserrat', 1.6rem, $third-color, 300);
+        margin-top: 40px;
+        line-height: 25px;
+    }
+
+    &__options {
+        @include font('Montserrat', 1.6rem, $third-color, 300); 
+        margin-top: 40px;
+        margin-left: 100px;
+        list-style: none;
+
+        & .option {
+            line-height: 30px;
+            position: relative;
+            display: block;
+
+            &::before {
+                content: '';
+                position: absolute;
+                background-color: $primary-decoration-color;
+                width: 20px;
+                height: 20px;
+                border-radius: 50%;
+                left: -50px;
+                top: 5px;
+            }
+
+            &::after {
+                content: '';
+                position: absolute;
+                width: 6px;
+                height: 6px;
+                border-bottom: 1px solid $first-color;
+                border-right: 1px solid $first-color;
+                transform: rotate(-45deg);
+                top: 12px;
+                left: -45px;
+            }            
+        }
+    }
+}

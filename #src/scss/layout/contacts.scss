@@ -1,0 +1,156 @@
+.contacts-block {
+    background-color: $contacts-bg;
+
+    & .contacts {
+        @include flex(row, space-between, flex-start);
+        padding: 80px 0px;
+        flex-wrap: wrap;
+
+        @include for-tablet {
+            padding: 80px 40px;
+        }
+
+        @include for-tablet-portrait {
+            @include flex(column, space-between, center);
+        }
+
+        & .contact {
+            width: 23%;
+
+            @include for-tablet {
+                width: 45%;
+            }
+
+            @include for-phone-only {
+                width: auto;
+            }
+
+            & .item-button {
+                color: $first-color;
+
+                &::after {
+                    border-left: 8px solid $first-color;
+                }
+            }
+        }
+    }
+}
+
+.contact-header {
+    @include flex(row, flex-start, center);
+
+    & .contact__title {
+        @include font('Raleway', 3.4rem, $first-color, 400);
+        text-transform: capitalize;
+        padding: 0;
+    }
+}
+
+.contact__title {
+    @include font('Raleway', 2.4rem, $first-color, 800);
+    text-transform: capitalize;
+    padding: 20px 0 30px;
+
+}
+
+.contact__description {
+    @include font('Montserrat', 1.4rem, $second-color, 300);
+    line-height: 25px;
+    margin-top: 30px;
+}
+
+.contact__post {
+    display: block;
+    text-decoration: none;
+    padding-bottom: 20px;
+    border-bottom: 1px solid $third-color;
+    padding-top: 0px;
+
+    &:nth-of-type(2) {
+        margin-top: 20px;
+    }
+
+    &:nth-of-type(3) {
+        border-bottom: 1px solid transparent;
+        padding-top: 20px
+    }
+
+    &:hover {
+        & .post-content {
+            color: $first-color;
+        }
+    }
+
+
+    & .post-content {
+        @include font('Montserrat', 1.4rem, $second-color, 300);
+        line-height: 2rem;
+        transition: all 0.4s ease;
+
+        & .text-link {
+            @include font('Montserrat', 1.4rem, $contact-text-link, 300);
+        }
+    }
+
+    & .publication-date {
+        @include font('Montserrat', 1.2rem,  $blog-image-first-info-item-bg, 300);
+        
+    }
+}
+
+.widgets {
+    @include flex(row, space-between, flex-start);
+    flex-wrap: wrap;
+    height: 210px;
+    width: 270px;
+
+    @include for-phone-only {
+        width: 230px;
+        height: 170px;
+    }
+
+    & .widget {
+        display: block;
+        width: 130px;
+        height: 100px;
+        transition: all 0.3s ease;
+
+        @include for-phone-only {
+            width: 110px;
+            height: 80px;
+        }
+
+        &:hover {
+            transform: scale(1.2);
+        }
+        
+
+        &:nth-of-type(1) {
+            background-image: url('../../img/contacts/widget1.png');
+        }
+        
+        &:nth-of-type(2) {
+            background-image: url('../../img/contacts/widget2.png');
+        }
+    
+        &:nth-of-type(3) {
+            background-image: url('../../img/contacts/widget3.png');
+            align-self: flex-end;
+        }
+    
+        &:nth-of-type(4) {
+            background-image: url('../../img/contacts/widget4.png');
+            align-self: flex-end;
+        }
+    }
+
+    
+}
+
+.post-content + .publication-date {
+    margin-top: 15px;
+}
+
+.publication-date + .post-content {
+    margin-top: 15px;
+}

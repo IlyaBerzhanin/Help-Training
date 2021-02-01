@@ -1,0 +1,167 @@
+.blog {
+  @include flex(column, center, center);
+  padding: 80px 20px;
+
+  &__title {
+    @include font("Raleway", 3rem, $second-color, 600);
+    text-transform: capitalize;
+  }
+
+  &__description {
+    @include font("Montserrat", 1.6rem, $third-color, 300);
+    text-align: center;
+    width: 60%;
+    margin-top: 30px;
+  }
+
+  &__gallery {
+    @include flex(row, space-between, center);
+    flex-wrap: wrap;
+    width: 100%;
+
+    @include for-tablet {
+      @include flex(column, space-between, center);
+    }
+  }
+}
+
+.blog__gallery__item {
+  width: 370px;
+  @include flex(column, center, center);
+  margin-top: 50px;
+
+  @include for-tablet {
+    width: 45vw;
+  }
+
+  @include for-tablet-portrait {
+    width: 370px;
+  }
+
+  @include for-phone-only {
+    width: 70vw;
+  }
+
+  & .gallery-images-block {
+    width: 100%;
+    height: 215px;
+    position: relative;
+
+    @include for-tablet {
+      height: 26vw;
+    }
+
+    @include for-tablet-portrait {
+      height: 215px;
+    }
+
+    @include for-phone-only {
+      height: 40vw;
+    }
+
+    &::before {
+      position: absolute;
+      content: "";
+      width: 100%;
+      height: 101%;
+      background-color: $portfolio-work-bg;
+      opacity: 0;
+      transition: all 0.5s ease;
+      z-index: 1;
+
+      @include for-phone-only {
+        height: 41vw;
+      }
+    }
+
+    & .image-info-block {
+      width: 50px;
+      border-radius: 5px;
+      overflow: hidden;
+      text-align: center;
+      z-index: 1;
+      position: relative;
+      top: 20px;
+      left: 20px;
+
+      & .first-info-item {
+        padding: 6px;
+        background-color: $blog-image-first-info-item-bg;
+        transition: all 0.5s ease;
+        @include font("Montserrat", 2.4rem, $first-color, 300);
+      }
+
+      & .second-info-item {
+        padding: 7px;
+        transition: all 0.5s ease;
+        background-color: $blog-image-second-info-item-bg;
+        @include font("Raleway", 1.2rem, $first-color, 400);
+        text-transform: capitalize;
+      }
+    }
+
+    & .gallery-image {
+      position: absolute;
+      top: 0;
+      width: 100%;
+    }
+  }
+
+  & .item-content {
+    padding: 0 30px;
+    transition: all 0.5s ease;
+    background-color: $first-color;
+    width: 100%;
+
+    & .item-name {
+      @include font("Raleway", 2rem, $second-color, 600);
+      display: block;
+      text-decoration: none;
+      margin-top: 30px;
+      transition: all 0.4s ease;
+
+      &:hover {
+        transform: scale(1.1);
+      }
+    }
+
+    & .item-description {
+      @include font("Montserrat", 1.4rem, $third-color, 300);
+      margin-top: 25px;
+
+      @include for-phone-only {
+        display: none;
+      }
+    }
+  }
+
+  &:hover {
+    & .gallery-images-block {
+      &::before {
+        opacity: 0.7;
+      }
+
+      & .image-info-block {
+        & .first-info-item {
+          background-color: $primary-decoration-color;
+        }
+
+        & .second-info-item {
+          background-color: $blog-image-second-info-item-bg-hover;
+        }
+      }
+    }
+
+    & .item-content {
+      background-color: $portfolio-description-hover-bg;
+
+      & .item-name {
+        color: $primary-decoration-color;
+      }
+
+      & .item-description {
+        color: $first-color;
+      }
+    }
+  }
+}

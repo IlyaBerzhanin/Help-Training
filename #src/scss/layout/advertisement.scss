@@ -1,0 +1,61 @@
+.advertisement-block {
+    background-color: $advertisement-bg;
+    @include flex(column, center, center);
+    padding: 0 15px;
+
+    &__title {
+        @include font('Raleway', 3rem, $second-color, 600);
+        @include for-phone-only {
+            text-align: center;
+        }
+    }
+
+    &__description {
+        margin-top: 30px;
+        @include font('Montserrat', 1.6rem, $third-color, 300);
+        line-height: 25px;
+        text-align: center;
+    }
+
+    &__gallery {
+        @include flex(row, center, flex-end);
+        margin-top: 40px;
+        position: relative;
+
+        & .advertisement-picture {
+            display: block;
+        }
+
+        & .main-picture {
+            position: relative;
+            z-index: 100;
+            width: 100%;
+        }
+
+        & .first-picture, & .second-picture {
+            position: absolute;
+            top: 17%;
+            z-index: 0;
+
+            @include for-tablet-portrait {
+                display: none;
+            }
+        }
+
+        & .first-picture {
+            left: -30%;
+
+            @include for-tablet {
+                //left: -3vw;
+            }
+        }
+
+        & .second-picture {
+            left: 30%;
+
+            @include for-tablet {
+                //left: 7vw;
+            }
+        }
+    }
+}

@@ -1,0 +1,204 @@
+.portfolio-block {
+    @include flex(column, center, center);
+    padding: 80px 0;
+
+    &__title {
+        @include font('Raleway', 3rem, $second-color, 600);
+        text-transform: capitalize;
+    }
+
+    &__description {
+        @include font('Monserrat', 1.6rem, $third-color, 300);
+        line-height: 2rem;
+        text-align: center;
+        width: 55%;
+        margin-top: 25px;
+    }
+
+    &__navigation {
+        width: 100%;
+        margin-top: 40px;
+
+        & .portfolio-tags-block {
+            margin: 0 auto;
+            list-style: none;
+            @include flex(row, center, center);
+            flex-wrap: wrap;
+            width: 100%;            
+        }
+    }
+
+    & .button {
+        margin-top: 40px;
+    }
+}
+
+.tag {
+    margin: 20px;
+    
+    &__link {
+        text-decoration: none;
+        @include font('Montserrat', 1.4rem, $third-color, 300);
+        text-transform: capitalize;
+        border: 1px solid $tag-border-color;
+        border-radius: 4px;
+        padding: 10px 20px;
+        transition: all 0.3s linear;
+       
+        
+        &:hover {
+            background-color: $tag-bg;
+            color: $first-color;
+        }
+
+       
+    }
+}
+
+.active-tag {
+    background-color: $primary-decoration-color;
+    color: $first-color;
+}
+
+.portfolio-block__works {
+    @include flex(row, space-between, center);
+    flex-wrap: wrap;
+    transition: all 0.5s ease;
+    
+    @include for-tablet {
+        padding: 0 50px;
+    }
+
+    @include for-phone-only {
+        padding: 0 20px;
+    }
+
+    @include for-tablet-portrait {
+        @include flex(column, space-between, center);
+        flex-wrap: nowrap;
+    }
+
+    & .work {
+        width: 370px;
+        height: 340px;
+        display: block;
+        margin-top: 40px;
+        position: relative;
+        transition: all 0.4s linear;
+
+        @include for-tablet-portrait {
+            width: 62vw;
+            height: 57vw;
+        }
+
+        @include for-phone-only {
+            width: 270px;
+            height: 240px;
+        }
+
+            &::before {
+                content: '';
+                position: absolute;
+                width: 100%;
+                height: 100%;
+                background-color: $portfolio-work-bg;                  
+                top: 0px;
+                transition: all 0.4s ease;
+                opacity: 0;
+
+                @include for-tablet-portrait {
+                    height: 71%;
+                }
+            }
+        
+
+        &:hover {
+           
+            & .work__user-actions {
+                transform: scale(1);
+            }
+
+            &::before {
+                opacity: 0.9;
+            }
+
+            & .work__description {
+                background-color: $portfolio-description-hover-bg;
+                &::before {
+                    border-bottom: 20px solid $portfolio-description-hover-bg;
+                }
+
+                & .description-name {
+                    color: $first-color;
+                }
+
+                & .description-subname {
+                    color: $primary-decoration-color;
+                }
+            }
+        }
+
+
+
+        &__picture {
+            width: 100%;
+            height: 240px;
+            display: block; 
+            
+            @include for-tablet-portrait {
+                height: 40vw;
+            }        
+            
+            @include for-phone-only {
+                height: 140px;
+            }
+        }
+
+        &__description {
+            width: 100%;
+            height: 100px;
+            background-color: $advertisement-bg;
+            transition: all 0.4s ease;
+            position: relative;
+            @include flex(column, center, flex-start);
+            padding-left: 30px;
+
+            & .description-name {
+                @include font('Raleway', 2rem, $primary-decoration-color, 600);
+                text-transform: capitalize;
+                transition: all 0.4s ease;
+            }
+
+            & .description-subname {
+                @include font('Montserrat', 1.4rem, $portfolio-description-subname, 300);
+                transition: all 0.4s ease;
+                margin-top: 15px;
+            }
+
+            &::before {
+                content: '';
+                position: absolute;
+                transition: all 0.4s ease;
+                border: 20px solid transparent;
+                border-bottom: 20px solid $advertisement-bg;
+                left: 20px;
+                top: -40px;
+            }
+        }
+    }
+
+    & .hidden-work {
+        transform: scale(0);
+        animation: hideWork 0.3s ease 0.3s forwards;
+    }
+}
+
+
+@keyframes hideWork {
+    100%{ width: 0;
+        height: 0;
+        overflow: hidden; width: 0;
+        height: 0;
+        overflow: hidden;
+    }
+}

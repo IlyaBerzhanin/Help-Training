@@ -1,0 +1,40 @@
+.user-action-container {
+  background: linear-gradient(to right, #211b19, #4e3427);
+}
+
+.user-action-content {
+  @include flex(row, space-between, center);
+  padding: 50px 0;
+  flex-wrap: wrap;
+
+  @include for-tablet {
+    padding: 50px 50px;
+  }
+
+  & .text-content {
+
+    @include for-tablet-portrait {
+      width: 100%;
+    }
+
+    & .content-title {
+      @include font("Raleway", 2.8rem, $first-color, 400);
+      text-transform: capitalize;
+
+      &__decorated {
+        color: $primary-decoration-color;
+      }
+    }
+
+    & .content-description {
+      @include font("Montserrat", 1.8rem, $user-action-description, 300);
+      margin-top: 10px;
+    }
+  }
+
+  & .button {
+    @include for-tablet-portrait {
+      margin-top: 50px;
+    }
+  }
+}

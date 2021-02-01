@@ -1,0 +1,60 @@
+.partnership-block {
+    background-image: url('../../img/partners/partnership-bg.png');
+    background-position: center;
+    background-size: cover;
+    height: 480px;
+    @include flex(row, center, center);
+    position: relative;
+    background-attachment: fixed;
+
+    &::after {
+        content: '';
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        background-color: black;
+        opacity: 0.6;
+    }
+
+    & .partners {
+        @include flex(row, flex-start, center);
+        overflow: hidden;
+        z-index: 2;
+
+        @include for-tablet {
+            width: 850px;
+        }
+
+        @include for-tablet-portrait {
+            width: 535px;
+        }
+
+        @include for-phone-only {
+            width: 220px;
+        }
+
+        & .partner-logo {
+            margin-left: 109px;
+        }
+    }
+}
+
+.partners > *:first-child .partner-logo {
+    margin-left: 0;
+}
+
+
+@keyframes slider {
+    0% {transform: translateX(0);}
+    25% {transform: translateX(-319px);}
+    50% {transform: translateX(-638px);}
+    75% {transform: translateX(-957px);}
+    100% {transform: translateX(-1276px);}
+  }
+  
+  .slider {
+    animation-name: slider;
+    animation-duration: 30s;
+    animation-timing-function: steps(end);
+    animation-iteration-count: infinite;
+  } 
