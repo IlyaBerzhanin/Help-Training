@@ -1,0 +1,103 @@
+.services-advertisement {
+    @include flex(column, space-between, center);
+    margin-top: 225px;
+    width: 100%;
+    padding-bottom: 160px;
+
+    & .advertisement-title {
+        @include font($main-font, 4.8rem, $secondary-decoration-color, 700);
+        text-transform: uppercase;
+        letter-spacing: 5px;
+        position: relative;
+
+        &::after {
+            content: '';
+            position: absolute;
+            width: 44px;
+            height: 4px;
+            background-color: $primary-decoration-color;
+            top: 150%;
+            left: 45%;
+        }
+    }
+
+    & .advertisement-text {
+        @include font($main-font, 1.5rem, $services-description-color, 400);
+        width: 550px;
+        text-align: center;
+        margin-top: 60px;
+    }
+}
+
+.videos {
+    @include flex(row, space-evenly, center);
+    margin-top: 80px;
+    width: 100%;
+
+    &__item {
+        @include flex(column, space-between, center);
+        background-color: rgb(255, 255, 255);
+        position: relative;
+
+        &:hover {
+            & .video-itself {
+                transform: scale(1.1);
+            }
+        }
+
+        & .video-itself {
+            border-radius: 50%;
+            transition: all 0.3s ease;
+        }
+
+        & .play-button {
+            position: absolute;
+            top: 27%;
+            background-color: $primary-decoration-color;
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            opacity: 0.8;
+
+            &::before {
+                content: '';
+                position: absolute;
+                border: 18px solid transparent;
+                border-left: 26px solid $logo-and-some-btn-border;
+                border-radius: 5px;
+                top: 22%;
+                left: 40%;
+            }
+
+            &::after {
+                content: '';
+                position: absolute;
+                width: 270px;
+                height: 270px;
+                border-radius: 50%;
+                border: 1px solid $primary-decoration-color-transparent;
+                top: -145%;
+                left: -145%;
+                z-index: -200;
+            }
+        }
+        
+        & .video-description {
+            @include font($main-font, 1.6rem, $secondary-decoration-color, 400);
+            text-transform: capitalize;
+            letter-spacing: 1px;
+            margin-top: 60px;
+            position: relative;
+
+            &::before {
+                content: '';
+                position: absolute;
+                width: 25px;
+                height: 1px;
+                background-color: $primary-decoration-color;
+                top: -150%;
+                left: 40%;
+            }
+        }
+    }
+}

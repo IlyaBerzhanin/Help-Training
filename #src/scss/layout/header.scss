@@ -1,0 +1,8 @@
+.header {
+    @include flex(row, space-between, flex-start);
+    padding: 25px 25px 0 25px;
+    position: absolute;
+    width: 100%;
+    z-index: 10;
+}
+

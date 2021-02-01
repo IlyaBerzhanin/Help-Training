@@ -1,0 +1,156 @@
+.advertisement {
+  background: url('../../img/video-large.jpg');
+  height: 915px;
+  @include flex(row, center, center);
+
+  &-container {
+    width: 1560px;
+    height: 735px;
+    border: 1px solid $primary-decoration-color;
+    opacity: 0.8;
+    @include flex(row, flex-start, center);
+    position: relative;
+
+    &::before {
+      content: "";
+      position: absolute;
+      width: 860px;
+      height: 860px;
+      border-radius: 50%;
+      border: 65px solid $flying-word;
+      opacity: 0.07;
+      left: 46%;
+      transition: all 2s ease;
+      transform: translateX(-900px);
+    }
+
+    &::after {
+      position: absolute;
+      content: "";
+      left: 100px;
+      height: 152px;
+      width: 1px;
+      background-color: $logo-and-some-btn-border;
+      top: 40%;
+      left: 90%;
+    }
+  }
+
+  &__block {
+    @include flex(column, center, flex-start);
+    margin-left: 390px;
+
+    & .block-title {
+      @include font($main-font, 4.8rem, $primary-decoration-color, 700);
+      text-transform: uppercase;
+      letter-spacing: 3px;
+      position: relative;
+
+      &::before {
+        content: "";
+        position: absolute;
+        width: 150px;
+        height: 1px;
+        background-color: $logo-and-some-btn-border;
+        top: 50%;
+        left: -180px;
+      }
+    }
+
+    & .block-description {
+      width: 540px;
+      @include font($main-font, 1.5rem, $header-text-color, 400);
+      line-height: 2.5rem;
+      letter-spacing: 1px;
+      margin-top: 50px;
+      position: relative;
+
+      &::before {
+        content: "";
+        position: absolute;
+        width: 44px;
+        height: 4px;
+        background-color: $primary-decoration-color;
+        top: 50%;
+        left: -74px;
+      }
+    }
+
+     & .button {
+       position: relative;
+
+       &::after {
+        content: "";
+        position: absolute;
+        border: 6px solid transparent;
+        border-left: 8px solid $logo-and-some-btn-border;
+        border-radius: 2px;
+        top: 38%;
+        left: 15.5%;
+        transform: rotate(0deg);
+      }
+
+      &::before {
+        content: '';
+        position: absolute;
+        width: 24px;
+        height: 24px;
+        border: 2px solid $logo-and-some-btn-border;
+        border-radius: 50%;
+        background-color: transparent;
+        left: 12.5%;
+        top: 28%;
+        
+      }
+     }
+
+      
+    
+  }
+}
+
+.triangle {
+  position: relative;
+  height: 270px;
+  width: 10px;
+  background-color: $flying-word;
+  left: 1100px;
+  border-radius: 70px;
+  box-shadow: 0px 0 0px 71px $flying-word;
+  transform: scale(0.7) translateX(-1300px);
+  opacity: 0.07;
+  transition: all 2s ease;
+
+  &::before,
+  &::after {
+    content: "";
+    position: absolute;
+    height: 270px;
+    width: 10px;
+    background-color: $flying-word;
+    border-radius: 70px;
+    box-shadow: 0px 0 0 71px $flying-word;
+  }
+
+  &::before {
+    transform: rotate(60deg) translate(113px, -65px);
+  }
+
+  &::after {
+    transform: rotate(-60deg) translate(113px, 65px);
+  }
+}
+
+.advertisement {
+  &:hover {
+    & .triangle {
+      transform: scale(0.7) translateX(0px) rotate(360deg);
+    }
+    
+    & .advertisement-container {
+      &::before {
+        transform: translateX(0px);
+      }
+    }
+  }
+}

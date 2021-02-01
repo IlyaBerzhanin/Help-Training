@@ -1,0 +1,68 @@
+.about-us {
+  margin: 0 auto;
+  @include flex(row, center, center);
+  padding: 135px 0 125px 0px;
+
+  & .description-block {
+    @include flex(column, center, flex-start);
+    margin-left: 100px;
+    position: relative;
+
+    &::before {
+      content: "A";
+      position: absolute;
+      @include font($main-font, 39rem, $flying-one-letter, 700);
+      left: 80%;
+      top: -175%;
+      opacity: 0.4;
+    }
+
+    &::after {
+      content: "about us";
+      position: absolute;
+      display: block;
+      @include font($main-font, 17rem, $flying-word, 700);
+      text-transform: uppercase;
+      letter-spacing: 10px;
+      top: 10%;
+      left: -360%;
+      opacity: 0.4;
+    }
+
+    &__title {
+      @include font($main-font, 5rem, $secondary-decoration-color, 700);
+      text-transform: uppercase;
+      letter-spacing: 5px;
+      position: relative;
+
+      &::before {
+        content: "";
+        position: absolute;
+        width: 150px;
+        height: 1px;
+        background-color: $secondary-decoration-color;
+        top: 50%;
+        left: -180px;
+      }
+    }
+
+    &__text {
+      line-height: 3rem;
+      @include font($main-font, 1.5rem, $services-description-color, 400);
+      margin-top: 25px;
+      position: relative;
+      width: 100%;
+      letter-spacing: 0.5px;
+
+      &::before {
+        content: "";
+        position: absolute;
+        width: 44px;
+        height: 4px;
+        background-color: $primary-decoration-color;
+        top: 50%;
+        left: -74px;
+      }
+    }
+  }
+}

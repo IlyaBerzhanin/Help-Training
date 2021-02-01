@@ -1,0 +1,66 @@
+.logo-and-nav {
+  @include flex(row, center, center);
+  flex: 1;
+  padding-left: 220px;
+
+  & .logo {
+    @include font($main-font, 3.6rem, $logo-and-some-btn-border, 700);
+    letter-spacing: 14px;
+    text-transform: uppercase;
+    position: relative;
+    
+
+    &::before {
+      content: "";
+      width: 68px;
+      height: 4px;
+      position: absolute;
+      background-color: $primary-decoration-color;
+      top: 20px;
+      left: 49px;
+    }
+  }
+
+  & .nav {
+    margin-left: 100px;
+
+    &-items {
+      @include flex(row, space-between, center);
+      width: 390px;
+      list-style: none;
+
+      & .item {
+        position: relative;
+
+        &:hover {
+      
+          &:after {
+            width: 100%;
+          }
+
+          & .item__name {
+            color: white;
+          }
+        }
+
+        &:after {
+          content: '';
+          width: 0%;
+          height: 2px;
+          position: absolute;
+          background-color: white;
+          bottom: 0;
+          left: 0;
+          transition: 0.3s ease-in;
+        }
+
+        &__name {
+            text-decoration: none;
+            text-transform: uppercase;
+            @include font($main-font, 1.5rem, $header-text-color, 400);
+            transition: 0.2s ease-in;
+        }
+      }
+    }
+  }
+}

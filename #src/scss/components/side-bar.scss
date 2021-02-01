@@ -1,0 +1,67 @@
+.side-bar {
+  width: 125px;
+  height: 950px;
+  @include flex(column, space-between, center);
+
+  & .user-actions-block {
+    @include flex(row, space-between, center);
+    width: 100%;
+    margin-top: 10px;
+    padding: 2px 20px 2px 0px;
+
+    & .first-action,
+    .second-action {
+      text-decoration: none;
+    }
+
+    & .first-action {
+      width: 25px;
+      height: 25px;
+      border: 1px solid $header-text-color;
+      @include flex(row, center, center);
+      border-radius: 50%;
+      @include font($main-font, 2rem, $header-text-color, 400);
+      transition: all 0.2s linear;
+
+      &:hover {
+        color: white;
+        border-color: white;
+        transform: scale(1.2);
+      }
+    }
+
+    & .second-action {
+      text-transform: uppercase;
+      @include font($main-font, 1.5rem, $header-text-color, 400);
+      position: relative;
+      transition: all 0.2s linear;
+
+      &:hover {
+        color: white;
+        transform: scale(1.2);
+      }
+
+      &::after {
+        content: '';
+        position: absolute;
+        left: 140%;
+        top: 25%;
+        border-left: 5px solid transparent;
+        border-right: 5px solid transparent;
+        border-top: 10px solid $primary-decoration-color;
+      }
+    }
+  }
+
+  & .user-action {
+   width: 30px;
+   margin-bottom: 40px;
+   opacity: 0.5;
+   transition: 0.2s ease-in;
+
+   &:hover {
+     transform: scale(1.2);
+     opacity: 1;
+   }
+  }
+}

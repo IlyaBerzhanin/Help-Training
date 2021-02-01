@@ -1,0 +1,49 @@
+.menu-block {
+    @include flex(row, center, center);
+
+    &__burger {
+        width: 45px;
+        height: 50px;
+        @include flex(row, center, center);
+
+        &:hover {
+            & .burger__line {
+                opacity: 1;
+            }
+        }
+
+        & .burger__line {
+            height: 1px;
+            width: 33px;
+            background-color: $primary-decoration-color;
+            position: relative;
+            opacity: 0.3;
+            transition: opacity 0.3s linear;
+            
+            &::before {
+            content: '';
+            height: 1px;
+            width: 33px;
+            background-color: $primary-decoration-color;
+            position: absolute;
+            bottom: 10px;
+            }
+
+            &::after {
+                content: '';
+                height: 1px;
+                width: 33px;
+                background-color: $primary-decoration-color;
+                position: absolute;
+                top: 10px;
+                }
+        }
+    }
+
+    &__title {
+        margin-left: 12px;
+        @include font($main-font, 1.5rem, $header-text-color, 400);
+        text-decoration: none;
+        text-transform: uppercase;
+    }
+}

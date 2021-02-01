@@ -1,0 +1,50 @@
+.footer-block {
+    background: url('../../img/footer-bg.jpg');
+    height: 70px;
+    background-size: cover;
+    background-position: center;
+    @include flex(row, center, center);
+}
+
+.footer {
+    @include flex(row, space-between, baseline);
+
+    &__copyright {
+        @include font($main-font, 1.5rem, $services-description-color, 400);
+        text-transform: uppercase;
+        letter-spacing: 1px;
+    }
+
+    &__logo {
+        @include font($main-font, 3rem, $logo-and-some-btn-border, 700);
+        text-transform: uppercase;
+        letter-spacing: 5px;
+        position: relative;
+
+        &::before {
+            content: "";
+            width: 52px;
+            height: 4px;
+            position: absolute;
+            background-color: $primary-decoration-color;
+            top: 16px;
+            left: 35px;
+          }
+    }
+
+    &__author-block {
+        @include font($main-font, 1.5rem, $services-description-color, 400);
+        letter-spacing: 0.5px;
+        white-space: pre;
+
+        & .author-block__name {
+            @include font($main-font, 1.5rem, #7d7d7d, 400);
+            text-transform: capitalize;
+        }
+    }
+}
+
+
+
+
+

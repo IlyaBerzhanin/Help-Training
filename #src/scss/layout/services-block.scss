@@ -1,0 +1,206 @@
+.services-block {
+  @include flex(column, space-between, center);
+  padding-top: 90px;
+  margin: 0 auto;
+}
+
+.service-picture {
+  transition: all 0.7s ease;
+  z-index: -100;
+  opacity: 0.2;
+}
+
+.first-service,
+.second-service {
+  width: 100%;
+  @include flex(row, flex-start, center);
+
+  &:hover {
+    & .service-description {
+      &::after {
+        opacity: 0.4;
+      }
+    }
+
+    & .service-description {
+      opacity: 1;
+    }
+
+    & .service-order {
+      opacity: 1;
+      &::after {
+        transform: translateY(0);
+      }
+    }
+
+    & .description-title {
+      &::before {
+        transform: translateX(0px);
+      }
+    }
+
+    & .description-text {
+      &::before {
+        transform: translateX(0px);
+      }
+    }
+
+    & .service-picture {
+      transform: translateX(0px);
+      opacity: 1;
+    }
+  }
+}
+
+.first-service {
+  & .service-picture {
+    transform: translateX(600px);
+  }
+}
+
+.second-service {
+  margin-top: 280px;
+  & .service-picture {
+    transform: translateX(-600px);
+  }
+}
+
+.service-description {
+  width: 375px;
+  position: relative;
+  opacity: 0.1;
+  transition: all 0.7s linear;
+
+  &::before {
+    content: "F";
+    position: absolute;
+    @include font($main-font, 39rem, $flying-one-letter, 700);
+    top: -165%;
+    left: -55%;
+    opacity: 0.4;
+    transition: all 0.7s ease;
+  }
+
+  &::after {
+    content: "furniture";
+    position: absolute;
+    display: block;
+    @include font($main-font, 17rem, $flying-word, 700);
+    text-transform: uppercase;
+    letter-spacing: 10px;
+    top: 10%;
+    left: 170%;
+    opacity: 0;
+    z-index: 100;
+    transition: all 0.7s ease;
+  }
+
+  & .description-title {
+    @include font($main-font, 5rem, $secondary-decoration-color, 700);
+    text-transform: uppercase;
+    letter-spacing: 5px;
+    position: relative;
+
+    &::before {
+      content: "";
+      position: absolute;
+      width: 150px;
+      height: 1px;
+      background-color: $secondary-decoration-color;
+      top: 50%;
+      left: -180px;
+      transform: translateX(-500px);
+      transition: all 1.3s ease;
+    }
+  }
+
+  & .second-title {
+    text-align: right;
+    &::before {
+      left: 405px;
+      transform: translateX(500px);
+    }
+  }
+
+  & .description-text {
+    line-height: 3rem;
+    @include font($main-font, 1.5rem, $services-description-color, 400);
+    margin-top: 25px;
+    position: relative;
+
+    &::before {
+      content: "";
+      position: absolute;
+      width: 44px;
+      height: 4px;
+      background-color: $primary-decoration-color;
+      top: 50%;
+      left: -74px;
+      transform: translateX(-500px);
+      transition: all 0.8s ease;
+    }
+  }
+
+  & .second-text {
+    text-align: right;
+
+    &::before {
+      left: 405px;
+      transform: translateX(500px);
+    }
+  }
+}
+
+.second-description-block {
+  @include flex(column, space-between, initial);
+
+  &::before {
+    content: "D";
+    left: 80%;
+    top: -155%;
+  } 
+  
+  &::after {
+    content: "decor";
+    top: 10%;
+    left: -262%;
+  }
+
+
+}
+
+.service-order {
+  align-self: flex-end;
+  flex: 1;
+  @include font($another-font, 3.6rem, $secondary-decoration-color, 700);
+  position: relative;
+  opacity: 0.1;
+
+  & .order-end {
+    @include font($main-font, 3.6rem, $primary-decoration-color, 700);
+    letter-spacing: 5px;
+    margin-left: 5px;
+  }
+
+  &::after {
+    content: "";
+    width: 4px;
+    height: 50px;
+    background-color: $primary-decoration-color;
+    position: absolute;
+    left: 12%;
+    top: 200%;
+    transition: all 0.7s ease;
+    transform: translateY(200px);
+  }
+}
+
+.second-order {
+  text-align: right;
+
+  &::after {
+    left: 75%;
+  }
+}
+
+
